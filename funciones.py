@@ -18,8 +18,9 @@ def LINEAR(t, t0):
 
 
 def INVLINEAR(t, t0):
-    return max([1-t/t0, 0])
-
+    array = max([1-t/t0, 0])
+    return array
+    
 
 def SIN(t, a, f):
     return 1 + a*np.sin(f*t)
@@ -53,11 +54,10 @@ def LOG(t, t0):
     return np.log10(((9*t)/t0)+1)
 
 
-def INVLOG(t, t0):
-    if t<t0:
-        return np.log10(((-9*t)/t0)+10)
-    else:
-        return 0
+def INVLOG(t, t0, ts):
+    array1 = np.log10((-9*t[:int((t0/ts)+1)]/t0)+10)
+    array2 = 0*t[int((t0/ts)+1):]
+    return np.concatenate((array1, array2))
 
 
 def TRI(t, t0, t1, a1, ts):
