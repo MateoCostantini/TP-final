@@ -13,7 +13,8 @@ def CONSTANT(t):
 
 
 def LINEAR(t, t0):
-    return t/t0
+    t/t0
+    return t
 
 
 def INVLINEAR(t, t0):
@@ -59,13 +60,13 @@ def INVLOG(t, t0):
         return 0
 
 
-def TRI(t0, t1, a1):
-    if t<t1:
-        return (t*a1)/t1
-    elif t>t1:
-        return (t-t1)/(t1-t0) + a1
-    
-    
+def TRI(t, t0, t1, a1, ts):
+    array1 = (t[:int((t1/ts)+1)]*a1)/t1
+    array2 = (a1-1)*((t[int((t1/ts)+1):]-t1)/(t1-t0))+a1
+    return np.concatenate((array1, array2))
+
+
+
 def PULSES(t, t0, t1, a1):
     pass
     
