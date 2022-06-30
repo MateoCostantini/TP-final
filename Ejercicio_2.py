@@ -3,6 +3,7 @@ import math
 
 
 
+
 def get_instument(archivo):
     instrument_list = []
     with open(archivo, "r") as f:
@@ -24,8 +25,19 @@ quartsin = lambda x,t: math.sin((math.pi * x)/(2 * t))
 halfcos = lambda x,t: (1 + math.cos((math.pi * x)/ t))/2
 halfsin = lambda x,t: (1 + math.cos(math.pi * ((x/t)-(1/2))))/2
 Log = lambda x,t: math.log(((9 * x)/ t)+1, 10)
-invlog = lambda x,t:
 
+def invlog(x,t):
+    if x<t:
+        return math.log10(((-9 * x)/t)+10)
+    elif x>=t:
+        return 0
+
+def tri(x, t, T, a):
+    if x<T:
+        return (x * a)/T
+    elif x>T:
+        return (x - T)/(T-t)+a
+    
 
 
 
