@@ -1,14 +1,31 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jun 30 14:47:27 2022
+
+@author: 54911
+"""
+
 import math
 
 
 
-
-
-def get_instument(archivo):
+def get_instrument():
     instrument_list = []
-    with open(archivo, "r") as f:
-        for line in f:
-            instrument_list.append(line)
+    with open("flute.txt", "r") as f:
+        line = f.readline()
+        line = int(line)
+        instrument_list.append(line)
+        for i in range(line):
+            line = f.readline()
+            armonic = line.split(" ")
+            armonic[0], armonic[1] = int(armonic[0]), float(armonic[1])
+            instrument_list.append(armonic)
+        for i in range(3):
+            line = f.readline()
+            module = line.split(" ")
+            for k in range(1, len(module)):
+                module[k] = float(module[k])
+            instrument_list.append(module)
     return instrument_list
 
 def gen_mod(instrumento, d, fs):
@@ -25,19 +42,3 @@ quartsin = lambda x,t: math.sin((math.pi * x)/(2 * t))
 halfcos = lambda x,t: (1 + math.cos((math.pi * x)/ t))/2
 halfsin = lambda x,t: (1 + math.cos(math.pi * ((x/t)-(1/2))))/2
 Log = lambda x,t: math.log(((9 * x)/ t)+1, 10)
-
-def invlog(x,t):
-    if x<t:
-        return math.log10(((-9 * x)/t)+10)
-    elif x>=t:
-        return 0
-
-def tri(x, t, T, a):
-    if x<T:
-        return (x * a)/T
-    elif x>T:
-        return (x - T)/(T-t)+a
-    
-
-
-

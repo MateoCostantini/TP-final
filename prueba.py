@@ -5,23 +5,27 @@ Created on Tue Jun 14 09:12:18 2022
 @author: 54911
 """
 import funciones
+from Ejercicio_2 import get_instrument
+# import flute
 import numpy as np
 import matplotlib.pyplot as plt
 
-param = ["TRI", 0.07, 0.02, 1.3]
-param1 = ["EXP", 0.07]
-param2 = ["INVLINEAR", 0.02]
-param3 = ["INVEXP", 0.02]
-param4 = ["SIN", 5, 10.3]
-param5 = ["INVLOG", 0.5]
+# param = ["TRI", 0.07, 0.02, 1.3]
+# param1 = ["EXP", 0.07]
+# param2 = ["INVLINEAR", 0.02]
+# param3 = ["INVEXP", 0.02]
+# param4 = ["SIN", 5, 10.3]
+# param5 = ["INVLOG", 0.5]
 
-duration = 1.07
-fs = 44100
-
+# duration = 1.07
+# fs = 44100
+instrument_list= get_instrument()
 
 def get_func(param, duration, fs):
     ts = 1/fs
     t = np.arange(0, duration , ts)
+
+
     if param[0] == "CONSTANT":
         array = funciones.CONSTANT()
     elif param[0] == "LINEAR":
@@ -48,10 +52,40 @@ def get_func(param, duration, fs):
         array = funciones.INVLOG(t, param[1], ts)
     elif param[0] == "TRI":
         array = funciones.TRI(t, param[1], param[2], param[3], ts)
-
     return array
 
-print(get_func(param5, duration, fs))
-plt.plot(get_func(param5, duration, fs))
+def get_module(intrument_list):
+    module = []
+    for i in range(intrument_list[0]+1, len(intrument_list)):
+        intrument_list[i][0]
+        module.append()
+    
+    
+    
+print(get_func(instrument_list[1], 2, 0.02))
+plt.plot(get_func(instrument_list[1], 2, 0.02))
+
+# def get_instrument():
+#     harmonics = {}
+#     functions = {}
+#     with open("flute.txt", "r") as f:
+#         line = f.readline()
+#         for i in range(int(line)):
+#             line = f.readline()
+#             harmonic = line.split(" ")
+#             harmonics[int(harmonic[0])] = float(harmonic[1])
+#         for i in range(3):
+#             line = f.readline()
+#             module = line.rstrip().split(" ")
+#             func = module.pop(0)
+#             for k in range(len(module)):
+#                 module[k] = float(module[k])
+#             functions[func] = module
+#     return harmonics, functions
+        
+
+# harmonics, functions = get_instrument()
+
+# print(get_func())
 
 
