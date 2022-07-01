@@ -8,8 +8,9 @@ import instrument
 
 def main():
     harmonics_list, module_list = instrument.get_instrument()
-    module = join_module()
-    return
+    module = instrument.join_module(module_list)
+    return module
+
 
 if __name__ == "__main__":
-    main()
+    print(main())

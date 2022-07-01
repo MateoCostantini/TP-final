@@ -70,7 +70,7 @@ def get_module(module_list):
     return A, S, D
 
 
-def join_module():
+def join_module(module_list):
     attack, sostein, decay = get_module(module_list)
     AS = np.concatenate((attack, sostein))
     module = np.concatenate((AS, decay))
