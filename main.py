@@ -6,12 +6,15 @@ Created on Fri Jul  1 11:46:50 2022
 """
 import analyze_files
 import instrument
+import matplotlib.pyplot as plt
+
 
 
 def main():
     harmonics_list, module_list = analyze_files.get_instrument()
     partiture = analyze_files.get_partiture()
-    module = instrument.get_module(module_list)
+    module = instrument.get_module(module_list, partiture)
+    plt.plot(module)
     return module
 
 

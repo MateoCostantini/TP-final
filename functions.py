@@ -8,7 +8,7 @@ Created on Tue Jun 14 09:42:21 2022
 import numpy as np
 
 def CONSTANT(t):
-    return t
+    return np.ones(len(t))
 
 
 def LINEAR(t, t0):
@@ -29,7 +29,7 @@ def EXP(t, t0):
 
 
 def INVEXP(t, t0):
-    return np.e**(-5*t)/t0
+    return np.e**((-5*t)/t0)
 
 
 def QUARTCOS(t, t0):
