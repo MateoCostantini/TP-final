@@ -45,8 +45,8 @@ def get_module(module_list, partiture):
     A = get_func(module_list[0], module_list[0][1], 44100)
     S = get_func(module_list[1], partiture[0][2]-module_list[0][1], 44100)
     D = get_func(module_list[2], module_list[2][1], 44100)
-    module = np.concatenate((A, S, D))
-    return module
+    mod = np.concatenate((A, S, D))
+    return mod
 
 
 

@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 def main():
     harmonics_list, module_list = analyze_files.get_instrument()
     partiture = analyze_files.get_partiture()
-    module = instrument.get_module(module_list, partiture)
-    plt.plot(module)
-    return module
+    mod = instrument.get_module(module_list, partiture)
+    plt.plot(mod)
+    return mod
 
 
 if __name__ == "__main__":
