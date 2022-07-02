@@ -8,7 +8,7 @@ import instrument
 
 def main():
     harmonics_list, module_list = instrument.get_instrument()
-    module = instrument.join_module(module_list)
+    module = instrument.get_module(module_list)
     return module
 
 

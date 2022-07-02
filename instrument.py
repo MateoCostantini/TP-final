@@ -4,10 +4,9 @@ Created on Tue Jun 14 09:12:18 2022
 
 @author: 54911
 """
-import funciones
+import functions
 import numpy as np
 import matplotlib.pyplot as plt
-import main
 
 
 def get_instrument():
@@ -35,46 +34,42 @@ def get_func(param, duration, fs):
     t = np.arange(0, duration , ts)
 
     if param[0] == "CONSTANT":
-        array = funciones.CONSTANT(t)
+        array = functions.CONSTANT(t)
     elif param[0] == "LINEAR":
-        array = funciones.LINEAR(t, param[1])
+        array = functions.LINEAR(t, param[1])
     elif param[0] == "INVLINEAR":
-        array = funciones.INVLINEAR(t, param[1])
+        array = functions.INVLINEAR(t, param[1])
     elif param[0] == "SIN":
-        array = funciones.SIN(t, param[1], param[2])
+        array = functions.SIN(t, param[1], param[2])
     elif param[0] == "EXP":
-        array = funciones.EXP(t, param[1])
+        array = functions.EXP(t, param[1])
     elif param[0] == "INVEXP":
-        array = funciones.INVEXP(t, param[1])
+        array = functions.INVEXP(t, param[1])
     elif param[0] == "QUARTCOS":
-        array = funciones.QUARTCOS(t, param[1])
+        array = functions.QUARTCOS(t, param[1])
     elif param[0] == "QUARTSIN":
-        array = funciones.QUARTSIN(t, param[1])
+        array = functions.QUARTSIN(t, param[1])
     elif param[0] == "HALFCOS":
-        array = funciones.HALFCOS(t, param[1])
+        array = functions.HALFCOS(t, param[1])
     elif param[0] == "HALFSIN":
-        array = funciones.HALFSIN(t, param[1])
+        array = functions.HALFSIN(t, param[1])
     elif param[0] == "LOG":
-        array = funciones.LOG(t, param[1])
+        array = functions.LOG(t, param[1])
     elif param[0] == "INVLOG":
-        array = funciones.INVLOG(t, param[1], ts)
+        array = functions.INVLOG(t, param[1], ts)
     elif param[0] == "TRI":
-        array = funciones.TRI(t, param[1], param[2], param[3], ts)
+        array = functions.TRI(t, param[1], param[2], param[3], ts)
     return array
 
 
 def get_module(module_list):
     A = get_func(module_list[0], module_list[0][1], 44100)
-    S = get_func(module_list[1], 0.5, 44100)
+    S = get_func(module_list[1], 0.05, 44100)
     D = get_func(module_list[2], module_list[2][1], 44100)
-    return A, S, D
-
-
-def join_module(module_list):
-    attack, sostein, decay = get_module(module_list)
-    AS = np.concatenate((attack, sostein))
-    module = np.concatenate((AS, decay))
-    plt.stem(module)
+    module = np.concatenate((A, S, D))
+    plt.plot(module)
     return module
+
+
 
 
