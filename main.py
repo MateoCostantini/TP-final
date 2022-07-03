@@ -5,18 +5,19 @@ Created on Fri Jul  1 11:46:50 2022
 @author: 54911
 """
 import analyze_files
-import instrument
+import module
+import harmonics
 import matplotlib.pyplot as plt
 
 
-
-def main():
+fs = 44100
+def main(fs):
     harmonics_list, module_list = analyze_files.get_instrument()
     partiture = analyze_files.get_partiture()
-    mod = instrument.get_module(module_list, partiture)
-    plt.plot(mod)
-    return mod
+    mod = module.get_mod(module_list, partiture, fs)
+    notes = harmonics.get_tone(harmonics_list, partiture, fs)
+    return mod, notes
 
 
 if __name__ == "__main__":
-    print(main())
+    print(main(fs))
