@@ -11,13 +11,17 @@ import matplotlib.pyplot as plt
 
 
 fs = 44100
-def main(fs):
+def notes(fs):
     harmonics_list, module_list = analyze_files.get_instrument()
     partiture = analyze_files.get_partiture()
-    mod = module.get_mod(module_list, partiture, fs)
+    mods = module.get_mod(module_list, partiture, fs)
     notes = harmonics.get_tone(harmonics_list, partiture, fs)
-    return mod, notes
+    track = harmonics.final_partiture(notes, mods, partiture)
+    return track
+
+def main():
+    print(notes(fs))
 
 
 if __name__ == "__main__":
-    print(main(fs))
+    main()

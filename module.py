@@ -5,10 +5,12 @@ Created on Tue Jun 14 09:12:18 2022
 @author: 54911
 """
 import functions
+import analyze_files
 import numpy as np
+import matplotlib.pyplot as plt
 
 
-def get_func(param, duration, fs):
+def get_func(param, duration, fs):#1
     ts = 1/fs
     t = np.arange(0, duration , ts)
 
@@ -41,12 +43,15 @@ def get_func(param, duration, fs):
     return array
 
 
-def get_mod(module_list, partiture, fs):
+def get_mod(module_list, partiture, fs):#2
+    mods = []
     A = get_func(module_list[0], module_list[0][1], fs)
-    S = get_func(module_list[1], partiture[0][2]-module_list[0][1], fs)
     D = get_func(module_list[2], module_list[2][1], fs)
-    mod = np.concatenate((A, S, D))
-    return mod
+    for i in range(len(partiture)):
+        S = get_func(module_list[1], partiture[i][2]-module_list[0][1]-module_list[2][1], fs)
+        mod = np.concatenate((A, S, D))
+        mods.append(mod)
+    return mods
 
 
 
