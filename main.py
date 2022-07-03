@@ -12,11 +12,12 @@ import matplotlib.pyplot as plt
 
 fs = 44100
 def notes(fs):
+    ts = 1/fs
     harmonics_list, module_list = analyze_files.get_instrument()
     partiture = analyze_files.get_partiture()
     mods = module.get_mod(module_list, partiture, fs)
     notes = harmonics.get_tone(harmonics_list, partiture, fs)
-    track = harmonics.final_partiture(notes, mods, partiture)
+    track = harmonics.final_partiture(notes, mods, partiture, ts)
     return track
 
 def main():

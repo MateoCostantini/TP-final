@@ -25,7 +25,7 @@ def get_tone(harmonics_list, partiture, fs): #4
     return notes
 
 
-def final_partiture(notes, mods, partiture):
+def final_partiture(notes, mods, partiture, ts):
     final_notes = []
     song_length = 0
     for i in range(len(notes)):
@@ -39,7 +39,7 @@ def final_partiture(notes, mods, partiture):
         plt.plot(final_note)
         final_notes.append(final_note)
     for note in range(len(final_notes)):
-        zeros[partiture[note][0]:partiture[note][0] + partiture[notes][2]] = zeros[partiture[note][0]:partiture[note][0] + partiture[notes][2]] + final_notes[note]
+        zeros[(partiture[note][0])/ts:(partiture[note][0] + partiture[notes][2])/ts] = zeros[(partiture[note][0])/ts:(partiture[note][0] + partiture[notes][2])/ts] + final_notes[note]
     return zeros
 
         
