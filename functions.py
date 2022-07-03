@@ -16,7 +16,7 @@ def LINEAR(t, t0):
 
 
 def INVLINEAR(t, t0):
-    array = max([1-t/t0, 0])
+    array = np.max([1-t/t0, 0])
     return array
     
 

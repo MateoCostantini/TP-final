@@ -8,6 +8,8 @@ import analyze_files
 import module
 import harmonics
 import matplotlib.pyplot as plt
+import numpy as np
+from scipy.io.wavfile import write
 
 
 fs = 44100
@@ -20,8 +22,15 @@ def notes(fs):
     track = harmonics.final_partiture(notes, mods, partiture, ts)
     return track
 
+
+def sound(track, fs):
+    data = 2**15 /np.max(abs(track)) * track
+    write("audio.wav", fs, data.astype(np.int16))
+    
+
 def main():
-    print(notes(fs))
+    track = notes(fs)
+    sound(track, fs)
 
 
 if __name__ == "__main__":

@@ -33,13 +33,14 @@ def final_partiture(notes, mods, partiture, ts):
             song_length += 1
     zeros = np.zeros(song_length)
     for i in range(len(notes)):
-        print(len(notes[i]))
-        print(len(mods[i]))
         final_note = notes[i] * mods[i]
-        plt.plot(final_note)
         final_notes.append(final_note)
     for note in range(len(final_notes)):
-        zeros[(partiture[note][0])/ts:(partiture[note][0] + partiture[notes][2])/ts] = zeros[(partiture[note][0])/ts:(partiture[note][0] + partiture[notes][2])/ts] + final_notes[note]
+        print(int((partiture[note][0])/ts))
+        print(int((partiture[note][0] + partiture[note][2])/ts)+1)
+        a = zeros[int((partiture[note][0])/ts):int((partiture[note][0] + partiture[note][2])/ts)] 
+        print(len(a))
+        # zeros[int((partiture[note][0])/ts):int((partiture[note][0] + partiture[note][2])/ts)] = zeros[int((partiture[note][0])/ts):int((partiture[note][0] + partiture[note][2])/ts)] + final_notes[note]
     return zeros
 
         
