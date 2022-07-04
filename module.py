@@ -53,7 +53,7 @@ def get_mod(module_list, partiture, fs):#2
     D = get_func(module_list[2], module_list[2][1], fs)
     for i in range(len(partiture)):
         if partiture[i][2]-module_list[0][1]>=0:
-            S = get_func(module_list[1], partiture[i][2]-(len(A)/fs), fs) #-module_list[0][1]
+            S = get_func(module_list[1], partiture[i][2]-((len(A)-1)/fs), fs) #-module_list[0][1]
         else:
             S = get_func(module_list[1], 1/fs, fs)
         mod = np.concatenate((A, S, D))
