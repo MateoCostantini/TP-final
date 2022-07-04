@@ -7,6 +7,9 @@ Created on Sat Jul  2 15:19:08 2022
 import notes
 
 def get_instrument(): #2
+    """
+    
+    """
     harmonics_list = []
     module_list = []
     with open("piano.txt", "r") as f:
@@ -29,6 +32,9 @@ def get_instrument(): #2
 
 
 def get_partiture(): #4
+    """
+    
+    """
     partiture= []
     with open("partiture.txt", "r") as f:
         for line in f:
