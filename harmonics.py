@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Jul  2 18:47:43 2022
+Created on Mon Jul  4 19:22:33 2022
 
-@author: 54911
+@author: Nusa
 """
 import numpy as np
 import matplotlib.pyplot as plt
@@ -28,24 +28,3 @@ def get_tone(harmonics_list, partiture, mods, fs): #4
     track = track/np.max(abs(track))
     return track
 
-
-# def final_partiture(notes, mods, partiture, ts):
-#     final_notes = []
-#     song_length = 0
-#     for i in range(len(notes)):
-#         for k in range(len(notes[i])):
-#             song_length += 1
-#     track = np.zeros(song_length)
-#     for i in range(len(notes)):
-#         print(len(notes))
-#         print(len(mods))
-#         print(len(notes[i]))
-#         print(len(mods[i]))
-#         final_note = notes[i] * mods[i]
-#         final_notes.append(final_note)
-#     for note in range(len(final_notes)):
-#         track[int(partiture[note][0]/ts):int(partiture[note][0]/ts) + len(final_notes[note])] = track[int(partiture[note][0]/ts):int(partiture[note][0]/ts) + len(final_notes[note])] + final_notes[note]
-#     track = track/np.max(abs(track))
-#     return track
-
-        
