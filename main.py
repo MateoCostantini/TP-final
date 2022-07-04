@@ -47,14 +47,14 @@ def main():
     # Inicializar objeto argparse
     parser = argparse.ArgumentParser(description='Descripción general')
  # Agregar argumentos (flag, --atributo, opciones..., help)
-    parser.add_argument('-v', '--val', choices=[2, 4, 6, 8, 10], type=int, default=2, help='valores posibles')
-    parser.add_argument('-p', '--point', help='puntajes', type=int)
-    parser.add_argument('-n', '--name', help='nombre asociado a los puntajes y valores')
+    parser.add_argument('-f', '--frequency_lapse', choices=[8000, 9600, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 88200, 96000], type=int, default=48000, help='frecuencias de muestreo posibles')
+    parser.add_argument('-p', '--partiture', help='archivo de partiture (.txt)', type=str)
+    parser.add_argument('-i', '--instrument', help='archivo del instrumento (.txt)', type=str)
  # Parseo de argumentos
     arg = parser.parse_args() # arg contiene como atributos los parámetros ingresados
-    print(f'Contenido del argumento val: {arg.val} (type: {type(arg.val)})')
-    print(f'Contenido del argumento point: {arg.point} (type: {type(arg.point)})')
-    print(f'Contenido del argumento name: {arg.name} (type: {type(arg.name)})')
+    print(f'Contenido del argumento frequency_lapse: {arg.frequency_lapse} (type: {type(arg.frequency_lapse)})')
+    print(f'Contenido del argumento partiture: {arg.partiture} (type: {type(arg.partiture)})')
+    print(f'Contenido del argumento instrument: {arg.instrument} (type: {type(arg.instrument)})')
     track = notes(fs)
     sound(track, fs)
 
