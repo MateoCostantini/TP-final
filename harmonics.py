@@ -37,6 +37,7 @@ def final_partiture(notes, mods, partiture, ts):
         final_notes.append(final_note)
     for note in range(len(final_notes)):
         zeros[int(partiture[note][0]/ts):int(partiture[note][0]/ts) + len(final_notes[note])] = zeros[int(partiture[note][0]/ts):int(partiture[note][0]/ts) + len(final_notes[note])] + final_notes[note]
+    zeros = zeros/np.max(zeros)
     return zeros
 
         
