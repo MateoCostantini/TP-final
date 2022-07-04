@@ -36,11 +36,7 @@ def final_partiture(notes, mods, partiture, ts):
         final_note = notes[i] * mods[i]
         final_notes.append(final_note)
     for note in range(len(final_notes)):
-        print(int((partiture[note][0])/ts))
-        print(int((partiture[note][0] + partiture[note][2])/ts)+1)
-        a = zeros[int((partiture[note][0])/ts):int((partiture[note][0] + partiture[note][2])/ts)] 
-        print(len(a))
-        # zeros[int((partiture[note][0])/ts):int((partiture[note][0] + partiture[note][2])/ts)] = zeros[int((partiture[note][0])/ts):int((partiture[note][0] + partiture[note][2])/ts)] + final_notes[note]
+        zeros[int(partiture[note][0]/ts):int(partiture[note][0]/ts) + len(final_notes[note])] = zeros[int(partiture[note][0]/ts):int(partiture[note][0]/ts) + len(final_notes[note])] + final_notes[note]
     return zeros
 
         
