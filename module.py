@@ -5,9 +5,7 @@ Created on Tue Jun 14 09:12:18 2022
 @author: 54911
 """
 import functions
-import analyze_files
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 def get_func(param, duration, fs):#1
@@ -48,7 +46,10 @@ def get_mod(module_list, partiture, fs):#2
     A = get_func(module_list[0], module_list[0][1], fs)
     D = get_func(module_list[2], module_list[2][1], fs)
     for i in range(len(partiture)):
-        S = get_func(module_list[1], partiture[i][2]-module_list[0][1]-module_list[2][1], fs)
+        if partiture[i][2]-module_list[0][1]>=0:
+            S = get_func(module_list[1], partiture[i][2]-module_list[0][1], fs)
+        else:
+            S = get_func(module_list[1], 1/fs, fs)
         mod = np.concatenate((A, S, D))
         mods.append(mod)
     return mods
