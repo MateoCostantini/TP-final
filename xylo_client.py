@@ -5,8 +5,8 @@ Created on Tue Jul  5 16:26:03 2022
 @author: 54911
 """
 
-from xylophone.client import XyloClient
-from xylophone.xylo import XyloNote
+# from xylophone.client import XyloClient
+# from xylophone.xylo import XyloNote
 
 posible_notes = ("C7", "C#7", "Cb7",
                  "B6", "Bb6",
@@ -32,9 +32,11 @@ with open("partiture.txt", "r") as f:
     for line in f:
         note = (line.rstrip()).split(" ")
         if note[1] in posible_notes:
-            note.append(XyloNote()
+            note[0] = float(note[0])
+            notes.append(XyloNote(note[1], note[0], 90))
+print(notes)    
 
 
-client = XyloClient(host='localhost', port=8080)
-client.load(notes)
-client.play()
+# client = XyloClient(host='localhost', port=8080)
+# client.load(notes)
+# client.play()
