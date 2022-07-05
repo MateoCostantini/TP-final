@@ -27,14 +27,23 @@ posible_notes = ("C7", "C#7", "Cb7",
                  "A4", "A#4", "Ab4",
                  "G4", "G#4")
 
-notes =[]
-with open("partiture.txt", "r") as f:
-    for line in f:
-        note = (line.rstrip()).split(" ")
-        if note[1] in posible_notes:
-            note[0] = float(note[0])
-            notes.append(XyloNote(note[1], note[0], 90))
-print(notes)    
+class XyloNote:
+    def __init__(self, note, tstart, bps):
+        self.note = note
+        self.tstart = tstart
+        self.bps = bps
+         
+
+if __name__ == "__main__": 
+    notes =[]
+    with open("partiture.txt", "r") as f:
+        for line in f:
+            note_param = (line.rstrip()).split(" ")
+            if note_param[1] in posible_notes:
+                note_param[0] = float(note_param[0])
+                note = XyloNote(note_param[1], note_param[0], 120)
+                notes.append(note)
+    print(notes)    
 
 
 # client = XyloClient(host='localhost', port=8080)
