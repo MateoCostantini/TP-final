@@ -18,8 +18,7 @@ def notes(fs, partiture_file, instrument_file):
     """
     harmonics_list, module_list = analyze_files.get_instrument(instrument_file)
     partiture = analyze_files.get_partiture(partiture_file)
-    mods = module.get_mod(module_list, partiture, fs)
-    track = harmonics.get_tone(harmonics_list, partiture, mods, module_list, fs)
+    track = harmonics.get_tone(harmonics_list, partiture, module_list, fs)
     return track
 
 
