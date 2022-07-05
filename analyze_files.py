@@ -6,13 +6,13 @@ Created on Sat Jul  2 15:19:08 2022
 """
 import notes
 
-def get_instrument(): #2
+def get_instrument(instrument_file): #2
     """
     
     """
     harmonics_list = []
     module_list = []
-    with open("piano.txt", "r") as f:
+    with open(instrument_file, "r") as f:
         line = f.readline()
         line = int(line)
         for i in range(line):
@@ -31,12 +31,12 @@ def get_instrument(): #2
     return harmonics_list, module_list
 
 
-def get_partiture(): #4
+def get_partiture(partiture_file): #4
     """
     
     """
     partiture= []
-    with open("partiture.txt", "r") as f:
+    with open(partiture_file, "r") as f:
         for line in f:
             note = (line.rstrip()).split(" ")
             for i in range(len(notes.notes_mapping)):

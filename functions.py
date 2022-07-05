@@ -16,7 +16,7 @@ def LINEAR(t, t0):
 
 
 def INVLINEAR(t, t0):
-    array = np.max([1-t/t0, 0])
+    array = 1-t/t0
     return array
     
 
@@ -66,9 +66,7 @@ def TRI(t, t0, t1, a1, ts):
 
 
 def PULSES(t, t0, t1, a1):
-    pass
-    
-    
-    
+    t_ = t/t0 - np.floor(t/t0)
+    return np.clip((((1-a1)/t1)*(t_ - t0 + t1)) + a1, 1)
     
     
