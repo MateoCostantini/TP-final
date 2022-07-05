@@ -1,17 +1,26 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Jun 14 09:12:18 2022
+Created on Mon Jul  4 19:25:54 2022
 
-@author: 54911
+@author: Nusa
 """
+
 import functions
 import harmonics
 import numpy as np
 
 
-def get_func(param, duration, fs):#1
+def get_func(param, duration, fs): #1
     """
-
+    This function allowes the user to choose between the module functions, CONSTANT, LINEAR, TRI
+    and INVLINEAR.
+    
+    In this functions enters:
+        param: A list that contains the type of function ans it's parameters
+        duration: The duration of the function
+        fs: Is the sample rate that is measured in Hz
+        
+    This function returns the function elected.
     """
     ts = 1/fs
     t = np.arange(0, duration , ts)
@@ -45,8 +54,15 @@ def get_func(param, duration, fs):#1
     return array
 
 
-def get_mod(module_list, partiture, fs, sound):#2
+def get_mod(module_list, partiture, fs, sound): #2
     """
+    This function recives module_list, partiture, fs and the sound
+        module_list: Is a list with all the modules of the function get_instrument. 
+        partiture: Partiture provides us with the information od the duration of the song and each note.
+    
+    The function is elaboraated through the parameters of attack, constant and decay of the instrument
+    
+    This function returns the variable mod, that provides us with grafical information of the sound.
     
     """
     A = get_func(module_list[0], module_list[0][1], fs)
@@ -57,7 +73,3 @@ def get_mod(module_list, partiture, fs, sound):#2
         S = get_func(module_list[1], 1/fs, fs)
     mod = np.concatenate((A, S, S[-1]*D))
     return mod
-
-
-
-

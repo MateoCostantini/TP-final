@@ -1,14 +1,39 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Jul  2 18:47:43 2022
+Created on Mon Jul  4 19:22:33 2022
 
-@author: 54911
+@author: Nusa
 """
 import numpy as np
 import module
 
 
 def get_tone(harmonics_list, partiture, module_list, fs): #4
+    """
+   This function creates notes_duration, which using the for, is a 
+   list that then houses the time it takes to play the song with 
+   all the notes that are given. It then creates 'track' which is a 
+   vector with the same duration as the song, but with its value 
+   being 0, then the for then adds the notes onto track, and given 
+   that track is 0, the track then become the notes added onto the 
+   vector which then can be used to play the song.
+
+   Parameters
+   ----------
+   harmonics_list : tuple
+       the list containing the harmonics of the different notes
+   partiture : file
+       contains the notes of the song that will be played
+   module_list : tuple
+       a list containing the attack, constant and decay when using a piano
+   fs : int
+       it's the showing frequency
+
+   Returns
+   -------
+   track, which is the song in its entirety
+
+   """
     ts = 1/fs
     notes_duration = []
     for i in range(len(partiture)):
