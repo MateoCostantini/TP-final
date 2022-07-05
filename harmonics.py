@@ -20,7 +20,8 @@ def get_tone(harmonics_list, partiture, mods, module_list, fs): #4
         for k in range(len(harmonics_list)):
             note = harmonics_list[k][1]*np.sin(harmonics_list[k][0]*2*np.pi*partiture[i][1]*t)
             c += note
-        note = c * mods[i]
+        note_length = min([len(c)-1, len(mods[i])-1])
+        note = c[:note_length] * mods[i][:note_length]
         track[int(partiture[i][0]/ts):int(partiture[i][0]/ts) + len(note)] = track[int(partiture[i][0]/ts):int(partiture[i][0]/ts) + len(note)] + note
     track = track/np.max(abs(track))
     return track

@@ -40,18 +40,12 @@ def main():
     None.
 
     """
-    # Inicializar objeto argparse
     parser = argparse.ArgumentParser(description='Descripción general')
- # Agregar argumentos (flag, --atributo, opciones..., help)
     parser.add_argument('-p', '--partiture', help='Nombre del archivo de entrada que describe la partitura')
     parser.add_argument('-i', '--instrument', help='Nombre del archivo de entrada que describe un instrumento')
     parser.add_argument('-o', '--out', help='Nombre del archivo de salida (archivo WAVE a generar)')
     parser.add_argument('-f', '--frequency_lapse', choices=[8000, 9600, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 88200, 96000], type=int, default=48000, help='Frecuencia de muestreo. Una entre: 8000, 9600, 11025, 12000, 16000, 22050, 24000, 32000, 441000, 48000, 88200, 96000')
- # Parseo de argumentos
-    arg = parser.parse_args()# arg contiene como atributos los parámetros ingresados
-    print(f'Contenido del argumento frequency_lapse: {arg.frequency_lapse} (type: {type(arg.frequency_lapse)})')
-    print(f'Contenido del argumento partiture: {arg.partiture} (type: {type(arg.partiture)})')
-    print(f'Contenido del argumento instrument: {arg.instrument} (type: {type(arg.instrument)})')
+    arg = parser.parse_args()
     track = notes(arg.frequency_lapse, arg.partiture, arg.instrument)
     sound(track, arg.frequency_lapse, arg.out)
 
