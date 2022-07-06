@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jul  4 19:22:33 2022
+Created on Fri Jul  1 11:46:50 2022
 
-@author: Nusa
+@author: 54911
 """
 import analyze_files
 import module
@@ -19,7 +19,6 @@ def notes(fs, partiture_file, instrument_file):
     and module_list which is then in turn given to get_partiture in 
     analyze_files that later returns partiture, which is given to 
     get_tone in harmonics, that returns the track.
-
     Parameters
     ----------
     fs : int
@@ -33,13 +32,12 @@ def notes(fs, partiture_file, instrument_file):
         A file that contains the pianos infomration, including
         harmonics, and the attack constant and decay time that would
         be added to the different notes
-
     Returns
     -------
     track, which is a vector with all the notes of the song added 
     together
-
     """
+    
     harmonics_list, module_list = analyze_files.get_instrument(instrument_file)
     partiture = analyze_files.get_partiture(partiture_file)
     track = harmonics.get_tone(harmonics_list, partiture, module_list, fs)
@@ -59,7 +57,6 @@ def sound(track, fs, out_file):
    out_file : file.wav
        a .wav file that 'stores' the track which can then be used 
        to listen to the song in its entirety
-
    Returns
    -------
    None.
@@ -72,7 +69,11 @@ def main():
     """
     This function was elaborated so that the code can be executed from the terminal which accepts different arguments and different songs.
     so that the sound of the final product changes according to the entered scores.
-    
+
+    Returns
+    -------
+    Track.
+
     """
     parser = argparse.ArgumentParser(description='Descripción general')
     parser.add_argument('-p', '--partiture', help='Nombre del archivo de entrada que describe la partitura')
@@ -82,6 +83,7 @@ def main():
     arg = parser.parse_args()
     track = notes(arg.frequency_lapse, arg.partiture, arg.instrument)
     sound(track, arg.frequency_lapse, arg.out)
+    return track
 
 
 if __name__ == "__main__":

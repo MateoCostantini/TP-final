@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jul  4 19:25:54 2022
+Created on Tue Jun 14 09:12:18 2022
 
-@author: Nusa
+@author: 54911
 """
-
 import functions
 import harmonics
 import numpy as np
 
 
-def get_func(param, duration, fs): #1
+def get_func(param, duration, fs):#1
     """
     This function allowes the user to choose between the module functions, CONSTANT, LINEAR, TRI
     and INVLINEAR.
@@ -54,7 +53,7 @@ def get_func(param, duration, fs): #1
     return array
 
 
-def get_mod(module_list, partiture, fs, sound): #2
+def get_mod(module_list, partiture, fs, sound):#2
     """
     This function recives module_list, partiture, fs and the sound
         module_list: Is a list with all the modules of the function get_instrument. 
@@ -65,7 +64,6 @@ def get_mod(module_list, partiture, fs, sound): #2
     The function is elaboraated through the parameters of attack, constant and decay of the instrument
     
     This function returns the variable mod, that provides us with grafical information of the sound.
-    
     """
     A = get_func(module_list[0], module_list[0][1], fs)
     D = get_func(module_list[2], module_list[2][1], fs)
@@ -75,3 +73,7 @@ def get_mod(module_list, partiture, fs, sound): #2
         S = get_func(module_list[1], 1/fs, fs)
     mod = np.concatenate((A, S, S[-1]*D))
     return mod
+
+
+
+

@@ -33,7 +33,7 @@ def INVEXP(t, t0):
 
 
 def QUARTCOS(t, t0):
-    return np.cos((np.pi*t)/(2*t))
+    return np.cos((np.pi*t)/(2*t0))
 
 
 def QUARTSIN(t, t0):
