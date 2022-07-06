@@ -1,0 +1,38 @@
+requirements:
+
+Python has to be intalled.
+
+All files from https://github.com/MateoCostantini/TP-final must be installed in the same folder. (for the synthesizer)
+
+All files from https://github.com/udesa-ai/xylophone must be in the same folder of the last step to use the xylofone.
+
+instuctions:
+
+To run the synthesizer have to be executed from the computer terminal. e.g: command prompt.
+When there, stand up in the folder where the files are: e.g: cd C:\Users\54911\Documents\AA_UdeSa\Cursada\Pensamiento computacional\TP final
+
+for windows:
+To finally run the program you should write: python main.py -p <partiture file.txt> -i <instrument file.txt> -o <name.wav file> -f <sameple rate>.
+
+for mac:
+To finally run the program you should write: python3 main.py -p <partiture file.txt> -i <instrument file.txt> -o <name.wav file> -f <sameple rate>.
+
+For more information about the arguments to run this file, write -h.
+
+Once finished, there is a file named as <name.wav>, enter there to listen to the partiture.
+
+--------
+
+instructions:
+
+to run the xylofone the file 'xylo_client' has to be executed from the terminal. 
+
+stand up in the folder where the files are: e.g: cd C:\Users\54911\Documents\AA_UdeSa\Cursada\Pensamiento computacional\TP final
+
+for windows:
+Then you have to write: python xylo_client.py -p <partiture file.txt> -d <host ip (e.g: 'localhost')>
+
+for mac:
+Then you have to write: python3 xylo_client.py -p <partiture file.txt> -d <host ip (e.g: 'localhost')>
+
+For more information about the arguments to run this file, write -h.
