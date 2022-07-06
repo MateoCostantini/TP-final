@@ -32,7 +32,7 @@ posible_notes = ("C7", "C#7", "Cb7",
 if __name__ == "__main__": 
     parser = argparse.ArgumentParser(description='introducir argumentos para el archivo de entrada (partitura) y el dispositiov de salida')
     parser.add_argument('-p', '--partiture', help='Nombre del archivo de entrada que describe la partitura')
-    parser.add_argument('-d', '--device', help='Nombre del dispositivo de salida que describe un instrumento')
+    parser.add_argument('-d', '--device', default='localhost' ,help='El host de salida que describe un instrumento')
     arg = parser.parse_args()
     notes =[]
     with open(arg.partiture, "r") as f:
@@ -44,6 +44,6 @@ if __name__ == "__main__":
                 notes.append(note)
 
 
-    client = XyloClient(host='localhost', port=8080)
+    client = XyloClient(host=arg.device, port=8080)
     client.load(notes)
     client.play()

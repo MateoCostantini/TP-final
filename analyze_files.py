@@ -8,14 +8,16 @@ import notes
 
 def get_instrument(instrument_file): #2
     """
-    This function reads a file and generates a list with the data of every line of the archive. The function
+    This function reads a file and generates a list with the data 
+    of every line of the archive. The function
     recives the information of the instrument as instrument_file.
     
     
     This function returns two lists, harmonics_list and module_list
     
         harmonics_list: Is a list with a tuple inside, that contains all the harmonics of the song
-        module_list: Is a list with a tuple inside that has all the modulatings, those are: the attack, constant, and dacay of the instrument
+        module_list: Is a list with a tuple inside that has all the modulatings, those are: the
+        attack, constant, and dacay of the instrument
     """
     harmonics_list = []
     module_list = []
