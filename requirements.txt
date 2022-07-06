@@ -4,7 +4,7 @@ Python has to be intalled.
 
 All files from https://github.com/MateoCostantini/TP-final must be installed in the same folder. (for the synthesizer)
 
-All files from https://github.com/udesa-ai/xylophone must be in the same folder of the last step to use the xylofone.
+All files from https://github.com/udesa-ai/xylophone must be in the same folder from the last step to use the xylofone.
 
 instuctions:
 
