@@ -32,7 +32,7 @@ posible_notes = ("C7", "C#7", "Cb7",
 if __name__ == "__main__": 
     parser = argparse.ArgumentParser(description='introducir argumentos para el archivo de entrada (partitura) y el dispositiov de salida')
     parser.add_argument('-p', '--partiture', help='Nombre del archivo de entrada que describe la partitura')
-    parser.add_argument('-d', '--device', default='localhost' ,help='El host de salida que describe un instrumento')
+    parser.add_argument('-d', '--device', choices=['localhost', '10.42.0.1'] ,help="El host de salida que describe un dispositivo, puede ser 'localhost' o 10.42.0.1")
     arg = parser.parse_args()
     notes =[]
     with open(arg.partiture, "r") as f:
