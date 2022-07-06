@@ -22,7 +22,7 @@ def notes(fs, partiture_file, instrument_file):
     Parameters
     ----------
     fs : int
-        Is the showing frequency that is given by the person running
+        Is the sample rate that is given by the person running
         the program
     partiture_file : file
         Is a file with all the specifications of the song, including
@@ -46,13 +46,13 @@ def notes(fs, partiture_file, instrument_file):
 
 def sound(track, fs, out_file):
     """
-    This function produces sounds with the given arguments
+    This function generates a .wav file with the given arguments
     
     Parameters
     ----------
-    A vector with all the notes of the song added together
+    An array with all the notes of the song added together
    fs : int
-       Is the showing frequency that is given by the person running
+       Is the sample rate that is given by the person running
        the program
    out_file : file.wav
        a .wav file that 'stores' the track which can then be used 

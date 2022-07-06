@@ -11,15 +11,15 @@ import numpy as np
 
 def get_func(param, duration, fs):#1
     """
-    This function allowes the user to choose between the module functions, CONSTANT, LINEAR, TRI
-    and INVLINEAR.
+    This function allowes the user to choose between the module functions, CONSTANT, LINEAR, TRI,
+    INVLINEAR, between others. Those then are used to generate the shape of the attack, sustain and decay.
     
-    In this functions enters:
+    Parameters:
         param: A list that contains the type of function ans it's parameters
         duration: The duration of the function
         fs: Is the sample rate that is measured in Hz, given by the person running the program
         
-    This function returns the function elected.
+    Returns: An array with the shape chosen.
     """
     ts = 1/fs
     t = np.arange(0, duration , ts)
@@ -53,22 +53,23 @@ def get_func(param, duration, fs):#1
     return array
 
 
-def get_mod(module_list, partiture, fs, sound):#2
+def get_mod(module_list, partiture, fs, note):#2
     """
-    This function recives module_list, partiture, fs and the sound
+    Parameters: module_list, partiture, fs and the note
         module_list: Is a list with all the modules of the function get_instrument. 
-        partiture: Partiture provides us with the information od the duration of the song and each note.
-        fs:Is the frequency given by the person running the program
-        sound: Is the function elaborated in the main archive, that produces sounds with the arguments given.
+        partiture: list with the information of the duration of the song and each note.
+        fs:Is the sample rate (frequency) given by the person running the program
+        note: it is the position of the note in the partiture list. this value changes
+        for each module that is done for every note.
     
     The function is elaboraated through the parameters of attack, constant and decay of the instrument
     
-    This function returns the variable mod, that provides us with grafical information of the sound.
+    This function returns the variable mod, that provides us an array with the attack, sustain, decay.
     """
     A = get_func(module_list[0], module_list[0][1], fs)
     D = get_func(module_list[2], module_list[2][1], fs)
-    if partiture[sound][2]-module_list[0][1]>0:
-        S = get_func(module_list[1], partiture[sound][2]-((len(A)-1)/fs), fs)
+    if partiture[note][2]-module_list[0][1]>0:
+        S = get_func(module_list[1], partiture[note][2]-((len(A)-1)/fs), fs)
     else:
         S = get_func(module_list[1], 1/fs, fs)
     mod = np.concatenate((A, S, S[-1]*D))

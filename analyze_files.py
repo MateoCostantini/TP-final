@@ -8,14 +8,14 @@ import notes
 
 def get_instrument(instrument_file): #2
     """
-    This function reads piano.txt and generates a list with the data of every line of the archive. The function
+    This function reads a file and generates a list with the data of every line of the archive. The function
     recives the information of the instrument as instrument_file.
     
     
     This function returns two lists, harmonics_list and module_list
     
         harmonics_list: Is a list with a tuple inside, that contains all the harmonics of the song
-        module_list: Is a list with a tuple inside that has all the modulatings, those are: the attack, constant, and dacay
+        module_list: Is a list with a tuple inside that has all the modulatings, those are: the attack, constant, and dacay of the instrument
     """
     harmonics_list = []
     module_list = []
@@ -41,8 +41,8 @@ def get_instrument(instrument_file): #2
 def get_partiture(partiture_file): #4
     """
     gets the notes from the song that are going to be played, and
-    filters them depending if they are playable by the xylophone or 
-    not
+    it changes the time when each note starts and the length to floats.
+    It also changes the american note for the frequency in hz.
     Parameters
     ----------
     partiture_file : file
