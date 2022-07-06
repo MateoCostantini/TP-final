@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jul  1 11:46:50 2022
+Created on Mon Jul  4 19:22:33 2022
 
-@author: 54911
+@author: Nusa
 """
 import analyze_files
 import module
@@ -14,7 +14,31 @@ import argparse
 
 def notes(fs, partiture_file, instrument_file):
     """
-    
+    The function first gives both the files to the function 
+    get_instrument in analyze_files, which returns the harmonic_list
+    and module_list which is then in turn given to get_partiture in 
+    analyze_files that later returns partiture, which is given to 
+    get_tone in harmonics, that returns the track.
+
+    Parameters
+    ----------
+    fs : int
+        Is the showing frequency that is given by the person running
+        the program
+    partiture_file : file
+        Is a file with all the specifications of the song, including
+        the time each note starts, the note itself, and how long it
+        has to play for
+    instrument_file : file
+        A file that contains the pianos infomration, including
+        harmonics, and the attack constant and decay time that would
+        be added to the different notes
+
+    Returns
+    -------
+    track, which is a vector with all the notes of the song added 
+    together
+
     """
     harmonics_list, module_list = analyze_files.get_instrument(instrument_file)
     partiture = analyze_files.get_partiture(partiture_file)
@@ -24,7 +48,21 @@ def notes(fs, partiture_file, instrument_file):
 
 def sound(track, fs, out_file):
     """
+    This function produces sounds with the given arguments
     
+    Parameters
+    ----------
+    A vector with all the notes of the song added together
+   fs : int
+       Is the showing frequency that is given by the person running
+       the program
+   out_file : file.wav
+       a .wav file that 'stores' the track which can then be used 
+       to listen to the song in its entirety
+
+   Returns
+   -------
+   None.
     """
     data =  2**15/np.max(abs(track)) * track
     write(out_file , fs, data.astype(np.int16))
@@ -32,12 +70,9 @@ def sound(track, fs, out_file):
 
 def main():
     """
+    This function was elaborated so that the code can be executed from the terminal which accepts different arguments and different songs.
+    so that the sound of the final product changes according to the entered scores.
     
-
-    Returns
-    -------
-    None.
-
     """
     parser = argparse.ArgumentParser(description='Descripción general')
     parser.add_argument('-p', '--partiture', help='Nombre del archivo de entrada que describe la partitura')

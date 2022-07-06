@@ -18,7 +18,7 @@ def get_func(param, duration, fs): #1
     In this functions enters:
         param: A list that contains the type of function ans it's parameters
         duration: The duration of the function
-        fs: Is the sample rate that is measured in Hz
+        fs: Is the sample rate that is measured in Hz, given by the person running the program
         
     This function returns the function elected.
     """
@@ -59,6 +59,8 @@ def get_mod(module_list, partiture, fs, sound): #2
     This function recives module_list, partiture, fs and the sound
         module_list: Is a list with all the modules of the function get_instrument. 
         partiture: Partiture provides us with the information od the duration of the song and each note.
+        fs:Is the frequency given by the person running the program
+        sound: Is the function elaborated in the main archive, that produces sounds with the arguments given.
     
     The function is elaboraated through the parameters of attack, constant and decay of the instrument
     
