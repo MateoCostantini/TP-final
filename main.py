@@ -75,7 +75,7 @@ def main():
     Track.
 
     """
-    parser = argparse.ArgumentParser(description='Descripción general')
+    parser = argparse.ArgumentParser(description='Se ingresan el archivo de la partitura, el archivo del instrumento, el tiempo de muestreo, se elige el nombre del archivo wav')
     parser.add_argument('-p', '--partiture', help='Nombre del archivo de entrada que describe la partitura')
     parser.add_argument('-i', '--instrument', help='Nombre del archivo de entrada que describe un instrumento')
     parser.add_argument('-o', '--out', help='Nombre del archivo de salida (archivo WAVE a generar)')

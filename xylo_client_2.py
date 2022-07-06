@@ -30,7 +30,7 @@ posible_notes = ("C7", "C#7", "Cb7",
          
 
 if __name__ == "__main__": 
-    parser = argparse.ArgumentParser(description='Descripción general')
+    parser = argparse.ArgumentParser(description='introducir argumentos para el archivo de entrada (partitura) y el dispositiov de salida')
     parser.add_argument('-p', '--partiture', help='Nombre del archivo de entrada que describe la partitura')
     parser.add_argument('-d', '--device', help='Nombre del dispositivo de salida que describe un instrumento')
     arg = parser.parse_args()
