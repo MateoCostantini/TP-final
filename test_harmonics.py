@@ -1,25 +1,11 @@
-from main import notes
 from harmonics import get_tone
-import analyze_files
 
 def test_get_tone():
-    fs = 48000
-    partiture_file = open('partiture_file.txt', 'r')
-    # z = []
-    instrument_file = open("instrument_file.txt", "r")
-    track = notes(fs, partiture_file, instrument_file)
-    harmonics_list, module_list = analyze_files.get_instrument(instrument_file)
-    partiture = analyze_files.get_partiture(partiture_file)
-    instrument_file.close()
-    partiture_file.close()
-    # x = 0
-    # z = 0
-    # g = get_tone(harmonics_list, partiture, module_list, fs)
-    # for i in track:
-    #     z +=i
-    # for i in g:
-    #     x+=i
-    # assert x == z, "not pass"
-    assert get_tone(harmonics_list, partiture, module_list, fs).all() == track.all(), "not pass"
+    harmonics_list = [(1, 1.0), (2, 0.2), (3, 0.3), (4, 0.1)] #valores parecidos pero diferentes
+    partiture= [(0.0, 1760.0, 0.5), (0.5, 698.456, 0.5), (1.0, 4186.01, 0.5), (1.2, 2217.46, 0.7), (1.9, 34.6479, 0.5)] #A6 F5 C8 Db7 Db1
+    module_list = [('LINEAR', 0.02), ('CONSTANT',), ('INVEXP', 0.06)] #valores parecidos pero diferentes
+    fs = 12000
     
+    assert len(get_tone(harmonics_list, partiture, module_list, fs)) == 29521, "not passed"
+   
 test_get_tone()
