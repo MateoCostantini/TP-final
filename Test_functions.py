@@ -25,18 +25,21 @@ from functions import PULSES
 def test_CONSTANT():
     t = 9
     assert CONSTANT(t) == 9, 'Not passed'
+test_CONSTANT()
 
 
 def test_LINEAR():
     t = 9
     t0 = 3
     assert LINEAR(t, t0) == 3, 'Not passed'
+test_LINEAR()
 
 
 def test_INVLINEAR():
     t = 9
     t0 = 3
     assert INVLINEAR(t, t0) == -2, 'Not passed'
+test_INVLINEAR()
     
 
 def test_SIN():
@@ -44,49 +47,56 @@ def test_SIN():
     a = 1
     f = 2
     assert SIN(t, a, f) == 0.24901275322832384 , 'Not passed'
+test_SIN()
 
 
 def test_EXP():
     t = 9
     t0 = 3
     assert EXP(t, t0) == 22026.46579 ,  'Not passed'
+test_EXP()
 
 
 def test_INVEXP():
     t = 9
     t0 = 3
     assert INVEXP(t, t0) == 3.059023205/100000000, 'Not passed'
-
+test_INVEXP()
 
 
 def test_QUARTCOS():
     t = 9
     t0 = 3
     assert QUARTCOS(t, t0)== 0, 'Not passed'
+test_QUARTCOS()
     
 
 def test_QUARTSIN():
     t = 9
     t0 = 3
     assert QUARTSIN(t, t0)== -1, 'Not passed'
+test_QUARTSIN()
 
 
 def test_HALFCOS():
     t = 9
     t0 = 3
     assert HALFCOS(t, t0) == 1, 'Not passed'
+test_HALFCOS()
 
 
 def test_HALFSIN():
     t = 9
     t0 = 3
     assert HALFSIN(t, t0) == 1/2, 'Not passed'
+test_HALFSIN()
 
 
 def test_LOG():
     t = 9
     t0 = 3
     assert LOG(t, t0) == 1.447158031, 'Not passed'
+test_LOG()
     
     
 def test_INVLOG():
@@ -95,6 +105,7 @@ def test_INVLOG():
     t0 = 3
     ts = 2
     assert INVLOG(t, t0, ts) == (1.243038049 , 0), 'Not passed'
+test_INVLOG()
 
 
 def test_TRI():
@@ -105,6 +116,7 @@ def test_TRI():
     a1 = 4
     ts = 2
     assert TRI(t, t0, t1, a1, ts) == (0 , -11/4), 'Not passed'
+test_TRI()
 
 
 def test_PULSES():
@@ -113,3 +125,4 @@ def test_PULSES():
     t1 = 1
     a1 = 4
     assert PULSES(t, t0, t1, a1) == (10, 1), 'Not passed'
+test_PULSES()
